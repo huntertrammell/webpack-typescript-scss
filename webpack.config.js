@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: "./src/index.ts",
-    mode: "development",
+  entry: "./src/index.ts",
+  mode: "development",
   module: {
     rules: [
       {
@@ -21,6 +21,7 @@ module.exports = {
             ? "style-loader"
             : MiniCssExtractPlugin.loader,
           "css-loader",
+          "postcss-loader",
           {
             loader: "sass-loader",
           },
