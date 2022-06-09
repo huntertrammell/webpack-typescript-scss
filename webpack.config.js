@@ -14,6 +14,7 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      { test: /\.ejs$/, use: "ejs-compiled-loader" },
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -52,7 +53,11 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./src/index.ejs",
+      filename: "index.html",
+      title: "Hello World",
+      description: "Built with Webpack, Typescript and SCSS",
+      chunks: ["index"],
     }),
     new CopyPlugin({
       patterns: [{ from: "src/assets", to: "assets" }],
